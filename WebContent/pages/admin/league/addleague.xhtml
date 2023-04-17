@@ -1,0 +1,80 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"> 
+<h:form id="addLeagueForm">
+<p:growl id="growl" showDetail="true" sticky="true" />
+<h:head>
+<h1>
+Add a new League
+</h1>
+</h:head>
+
+<div id="header">
+    <ui:insert name="header">
+    <ui:include src="/pages/common/commonmenu.xhtml" />
+        <ui:include src="/pages/common/header.xhtml" />
+    </ui:insert>
+</div>
+<body>
+ 
+<f:view>
+<f:loadBundle basename="com.football.messages.msgs" var="message"/> 
+</f:view>
+
+<div align="left">
+<p:panel  style="width:30%;background-color:#DFE2DB ">
+<p:outputLabel value="League Name">
+</p:outputLabel>
+<br/>
+<p:panel id="leaguenamepanel" style="width:70%">
+<p:inputText  value="#{leagueMBean.leagueName}" id="leagueName" required="true" requiredMessage="#{message.leaguenamerequired}" ><!-- validator="LeagueNameValidator" -->
+<!--  <f:validator id="LeagueNameValidator" validatorId="LeagueNameValidator" /> -->
+<p:message id="m1" for="leagueName" style="color:red"/>
+</p:inputText>
+</p:panel>
+<p:outputLabel value="Alias">
+</p:outputLabel>
+
+<p:panel id="leaguealiaspanel" style="width:70%">
+<p:inputText id="aliasName" name="aliasName" value="#{leagueMBean.aliasName}"></p:inputText>
+</p:panel>
+<p:outputLabel value="League Country"></p:outputLabel>
+<br/>
+<p:panel id="leaguecountrypanel" style="width:70%">
+<p:selectOneMenu id="countryId" value="#{leagueMBean.leagueCountry}" style="width:130px"  validator="LeagueNameValidator" required="true" requiredMessage="Required">
+<f:selectItem itemValue="#{null}" itemLabel="--Select--" noSelectionOption="true" />
+<f:selectItems id="countrySelected" value="#{leagueMBean.options}" ></f:selectItems>
+</p:selectOneMenu>
+
+</p:panel>
+<br/>
+
+<p:commandButton value="Save"   action="#{leagueMBean.saveLeague()}"  update="leaguenamepanel,leagueDataList,growl" ></p:commandButton>
+<p:commandButton value="Cancel" action="#{leagueMBean.cancel()}"></p:commandButton>
+<h:messages globalOnly="true"/>
+
+
+</p:panel>
+</div>
+ 
+<h:panelGrid columns="2" style="align:top;width:650px">
+<div align="center">
+<p:layoutUnit position="right">
+<p:dataList  id="leagueDataList" value="#{leagueMBean.leagueList}" var="league" type="unordered" paginator="true" rows="5" styleClass="paginated">
+<f:facet name="header">
+            Leagues
+        </f:facet>
+         <p:commandLink value="#{league.leagueName}" ></p:commandLink>,  #{league.leagueCountry}
+        </p:dataList>
+        </p:layoutUnit>
+        </div>
+
+
+ </h:panelGrid>
+</body> 
+
+</h:form>
+</html>

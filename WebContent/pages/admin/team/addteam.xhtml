@@ -1,0 +1,36 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"> 
+
+<h:form id="addteamform">
+<h:head> Select a Country and League to add a new team </h:head>
+<body> 
+<f:view>
+<f:loadBundle basename="com.football.messages.msgs" var="message"/> 
+</f:view>
+
+<h:panelGrid columns="2" layout="grid">
+<p:panel style="width:60%">
+<p:outputLabel value="Select Country">
+</p:outputLabel>
+
+
+<p:selectOneMenu id="countryId" value="#{TeamMBean.teamCountry}" style="width:150px;align:right" onchange="#{TeamMBean.options}">
+<f:selectItem itemValue="#{null}" itemLabel="--Select--" noSelectionOption="true" />
+
+<f:selectItems id="countrySelected" value="#{TeamMBean.options}" ></f:selectItems>
+</p:selectOneMenu>
+</p:panel>
+ <p:outputLabel for="team" value="Team: " />
+            <p:selectOneMenu id="team" value="#{dropdownView.city}" style="width:150px">
+                <f:selectItem itemLabel="Select City" itemValue="" noSelectionOption="true" />
+                <f:selectItems value="#{dropdownView.cities}" />
+            </p:selectOneMenu>
+</h:panelGrid>
+
+</body> 
+</h:form>
+</html>

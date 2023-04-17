@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry exported="true" kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
+	<classpathentry exported="true" kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
+	<classpathentry exported="true" kind="lib" path="WebContent/WEB-INF/lib/omnifaces-2.1.jar"/>
+	<classpathentry kind="lib" path="D:/hibernate-release-4.1.8.Final/lib/required/antlr-2.7.7.jar"/>
+	<classpathentry kind="lib" path="D:/hibernate-release-4.1.8.Final/lib/required/dom4j-1.6.1.jar"/>
+	<classpathentry kind="lib" path="D:/hibernate-release-4.1.8.Final/lib/required/javassist-3.15.0-GA.jar"/>
+	<classpathentry kind="lib" path="D:/hibernate-release-4.1.8.Final/lib/required/jboss-logging-3.1.0.GA.jar"/>
+	<classpathentry kind="lib" path="D:/hibernate-release-4.1.8.Final/lib/required/jboss-transaction-api_1.1_spec-1.0.0.Final.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="C:/Users/user/Downloads/javaee-api-7.0.jar"/>
+	<classpathentry kind="lib" path="D:/mysql-connector-java-5.1.13.jar"/>
+	<classpathentry kind="output" path="build/classes"/>
+</classpath>
